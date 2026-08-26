@@ -1,0 +1,48 @@
+﻿# Frontend dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+.yarn/
+
+# Frontend build
+frontend/dist/
+frontend/.vite
+frontend/build/
+
+# Go binaries
+build/
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go modules
+go.sum
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+temp/
+tmp/
+
+# Application data
+%APPDATA%/LLMKeyManager/
