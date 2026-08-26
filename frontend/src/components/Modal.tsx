@@ -8,7 +8,7 @@ interface ModalProps {
   title: string;
   children: React.ReactNode;
   actions?: React.ReactNode;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -17,12 +17,14 @@ export const Modal: React.FC<ModalProps> = ({
   title,
   children,
   actions,
-  size = 'md',
+  size = 'lg',
 }) => {
   const sizeClasses = {
     sm: 'max-w-sm',
     md: 'max-w-md',
-    lg: 'max-w-lg',
+    lg: 'max-w-2xl',
+    xl: 'max-w-3xl',
+    '2xl': 'max-w-4xl',
   };
 
   return (
@@ -54,7 +56,7 @@ export const Modal: React.FC<ModalProps> = ({
                 </button>
               </div>
 
-              <div className="p-6 max-h-96 overflow-y-auto">
+              <div className="p-6 max-h-[70vh] overflow-y-auto">
                 {children}
               </div>
 

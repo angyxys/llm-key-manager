@@ -3,14 +3,12 @@ import { Shield, Lock, HardDrive, Zap, AlertCircle, Copy, Check, Clock, Download
 import { motion } from 'framer-motion';
 import { toast } from 'sonner';
 import { useKeyStore } from '../store/useKeyStore';
-import { TwoFactorAuth } from '../components/TwoFactorAuth';
 import { KeyImporter } from '../components/KeyImporter';
 
 export const Settings: React.FC = () => {
   const [copied, setCopied] = useState<string | null>(null);
   const [autoLockEnabled, setAutoLockEnabled] = useState(true);
   const [autoLockMinutes, setAutoLockMinutes] = useState(15);
-  const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
   const [showImporter, setShowImporter] = useState(false);
   const { keys } = useKeyStore();
 
@@ -261,15 +259,6 @@ export const Settings: React.FC = () => {
         </motion.div>
       )}
 
-      {/* Two-Factor Authentication */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.31 }}
-      >
-        <TwoFactorAuth isEnabled={twoFactorEnabled} onToggle={setTwoFactorEnabled} />
-      </motion.div>
-
       {/* Import Keys */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -308,7 +297,7 @@ export const Settings: React.FC = () => {
         <div className="space-y-3">
           <div className="flex justify-between">
             <span className="text-gray-400">Application Version</span>
-            <span className="text-white font-mono">2.0.0</span>
+            <span className="text-white font-mono">1.0.0</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-400">Built With</span>
@@ -320,7 +309,7 @@ export const Settings: React.FC = () => {
           </div>
           <div className="pt-3 border-t border-gray-700 flex justify-between">
             <span className="text-gray-400">Platform</span>
-            <span className="text-white">Windows Desktop (v2.0)</span>
+            <span className="text-white">Windows Desktop (v1.0)</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-400">Features</span>

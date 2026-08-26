@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useKeyStore } from '../store/useKeyStore';
 import { useProviders } from '../hooks/useProviders';
-import { StatusBadge } from '../components/StatusBadge';
 import { ProviderIcon } from '../components/ProviderIcon';
 import { DashboardCharts } from '../components/DashboardCharts';
 import { KeyExpirationManager } from '../components/KeyExpirationManager';
@@ -122,17 +121,14 @@ export const Dashboard: React.FC = () => {
                 transition={{ delay: i * 0.05 }}
                 className="bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-gray-600 transition"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <ProviderIcon provider={provider.name} size="md" />
-                    <div>
-                      <h3 className="font-semibold text-white">{provider.displayName}</h3>
-                      <p className="text-xs text-gray-400">
-                        {isConfigured ? `${keyCount} key${keyCount > 1 ? 's' : ''}` : 'Not configured'}
-                      </p>
-                    </div>
+                <div className="flex items-center gap-4">
+                  <ProviderIcon provider={provider.name} size="md" />
+                  <div>
+                    <h3 className="font-semibold text-white">{provider.displayName}</h3>
+                    <p className="text-xs text-gray-400">
+                      {isConfigured ? `${keyCount} key${keyCount > 1 ? 's' : ''}` : 'Not configured'}
+                    </p>
                   </div>
-                  <StatusBadge status={statuses[provider.name] || 'unknown'} />
                 </div>
               </motion.div>
             );

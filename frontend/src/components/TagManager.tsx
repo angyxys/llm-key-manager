@@ -129,7 +129,7 @@ export const TagManager: React.FC<TagManagerProps> = ({
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         title="Create Tag"
-        size="sm"
+        size="md"
         actions={
           <>
             <button

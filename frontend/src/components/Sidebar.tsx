@@ -60,7 +60,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
           <div className="min-w-0">
             <h1 className="text-white font-bold text-lg truncate">LLM Keys</h1>
-            <p className="text-xs text-gray-400">v2.0</p>
+            <p className="text-xs text-gray-400">v1.0</p>
           </div>
         </div>
       </div>

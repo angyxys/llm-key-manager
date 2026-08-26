@@ -160,7 +160,7 @@ export const FolderManager: React.FC<FolderManagerProps> = ({
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         title={editingId ? 'Edit Folder' : 'Create Folder'}
-        size="sm"
+        size="md"
         actions={
           <>
             <button

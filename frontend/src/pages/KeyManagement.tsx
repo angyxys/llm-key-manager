@@ -145,7 +145,7 @@ export const KeyManagement: React.FC = () => {
                 isOpen={isAddingKey}
                 onClose={() => setIsAddingKey(false)}
                 title="Add New API Key"
-                size="lg"
+                size="xl"
                 actions={
                     <>
                         <button
