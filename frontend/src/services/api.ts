@@ -24,20 +24,28 @@ declare global {
     }
 }
 
+// Helper to ensure Wails is ready
+const getApp = () => {
+    if (!window.go?.main?.App) {
+        throw new Error('Wails runtime not initialized. Please ensure the application is running with Wails.');
+    }
+    return window.go.main.App;
+};
+
 export const api = {
-    getMasterKeyStatus: () => window.go.main.App.GetMasterKeyStatus(),
-    setMasterKey: (password: string) => window.go.main.App.SetMasterKey(password),
-    loginWithMasterKey: (password: string) => window.go.main.App.LoginWithMasterKey(password),
+    getMasterKeyStatus: () => getApp().GetMasterKeyStatus(),
+    setMasterKey: (password: string) => getApp().SetMasterKey(password),
+    loginWithMasterKey: (password: string) => getApp().LoginWithMasterKey(password),
 
-    getKeys: () => window.go.main.App.GetKeys(),
-    getKeyValue: (provider: string, id: string) => window.go.main.App.GetKeyValue(provider, id),
+    getKeys: () => getApp().GetKeys(),
+    getKeyValue: (provider: string, id: string) => getApp().GetKeyValue(provider, id),
     addKey: (provider: string, name: string, apiKey: string) =>
-        window.go.main.App.AddKey(provider, name, apiKey),
-    deleteKey: (provider: string, id: string) => window.go.main.App.DeleteKey(provider, id),
+        getApp().AddKey(provider, name, apiKey),
+    deleteKey: (provider: string, id: string) => getApp().DeleteKey(provider, id),
     updateKey: (provider: string, id: string, newAPIKey: string) =>
-        window.go.main.App.UpdateKey(provider, id, newAPIKey),
+        getApp().UpdateKey(provider, id, newAPIKey),
 
-    checkStatus: (provider: string) => window.go.main.App.CheckStatus(provider),
-    checkAllStatuses: () => window.go.main.App.CheckAllStatuses(),
-    getStatuses: () => window.go.main.App.GetStatuses(),
+    checkStatus: (provider: string) => getApp().CheckStatus(provider),
+    checkAllStatuses: () => getApp().CheckAllStatuses(),
+    getStatuses: () => getApp().GetStatuses(),
 };
